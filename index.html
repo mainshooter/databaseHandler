@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Database controller</title>
+
+    <script type="text/javascript" src="main.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  </head>
+  <body onload="getRequest();">
+  <div id="result"></div>
+  <form method="post" class='form-group' action="crtl.database.php">
+    <div>First Name</div>
+    <input type="text" id="firstname" class="form-control" name="first_name">
+    <div>Last Name</div>
+    <input type="text" id="lastname" class="form-control" name="last_name">
+    <div>user_city</div>
+    <input type="text" id="usercity" class="form-control" name="user_city">
+    <div></div>
+    <button type="button" onclick="insertData(firstname.value, lastname.value, usercity.value);">Opslaan</button>
+  </form>
+  <!-- Content contains the table that is get by AJAX -->
+  <div id="content"></div>
+
+  <!-- Status contains a loader -->
+  <div id="status">&nbsp;</div>
+
+
+</body>
+</html>
