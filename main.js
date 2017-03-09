@@ -4,9 +4,12 @@ function getRequest() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
      document.getElementById("content").innerHTML = this.responseText;
+     stateShow("clear");
+    }
+    else {
+      stateShow("loading");
     }
   };
-  stateShow();
   xhttp.open("GET", "crtl.database.php?submit=table", true);
   xhttp.send("");
 }
@@ -20,7 +23,9 @@ function updateData(id) {
     if (this.readyState == 4 && this.status == 200) {
      showResult(this.responseText);
      getRequest();
-     stateShow();
+    }
+    else {
+      stateShow("loading");
     }
   };
   stateShow();
@@ -38,6 +43,9 @@ function insertData(firstname, secondname, usercity) {
      showResult(this.responseText);
      getRequest();
     }
+    else {
+      stateShow("loading");
+    }
   };
 
   var postParameters = "submit=create&first_name=" + firstname + "&last_name=" + secondname + "&user_city=" + usercity;
@@ -54,17 +62,20 @@ function deleteData(userID) {
      showResult(this.responseText);
      getRequest();
     }
+    else {
+      stateShow("loading");
+    }
   };
   xhttp.open("GET", "crtl.database.php?submit=remove&user_id=" + userID + "", true);
   xhttp.send("");
 }
 function showResult(message) {
   // We use this to display a message
-  document.getElementById('result').innerHTML = message;
+  // document.getElementById('result').innerHTML = message;
+  // Dont use that we have a loader!
 }
 
-var status = "loading";
-function stateShow() {
+function stateShow(status) {
   var stateDiv = document.getElementById('status');
   // This function change the div status
   // So that the user can see what is happening
