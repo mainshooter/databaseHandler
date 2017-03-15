@@ -10,7 +10,7 @@ function getRequest() {
       stateShow("loading");
     }
   };
-  xhttp.open("GET", "crtl.database.php?submit=table", true);
+  xhttp.open("GET", "crtl.database.php?submit=read", true);
   xhttp.send();
 }
 function updateData(id) {
