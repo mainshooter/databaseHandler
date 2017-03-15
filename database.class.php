@@ -38,7 +38,7 @@
         $conn = $this->conn;
         $query = $conn->prepare($sql);
         $query->execute();
-        $row = $query->fetchAll();
+        $row = $query->fetchAll(PDO::FETCH_ASSOC);
         // $row = $conn->query($sql);
         return($row);
       } catch (Exception $e) {

@@ -1,36 +1,56 @@
 <?php
-
+// foreach ($res as $row) {
+//   echo "<tr>";
+//   foreach ($row as $key => $value) {
+//     echo "
+//         <td>" . $value ."</td>
+//     ";
+//   }
+//   echo "<tr>";
+// }
   class view {
     // We create view in here
-    function createFormTable($row) {
+    function createFormTable($row, $header) {
       // This function create the table where are froms in it
+      $res = $row;
       echo "
       <table class='table-hover'>
-        <tr>
-          <th>userID</th>
-          <th>First Name</th>
-          <th>Last name</th>
-          <th>User City</th>
-        </tr>
+
       ";
-      foreach ($row as $key) {
-        echo "
-          <tr>
-          <div class='form-group'>
-            <form method='post' class='form-group' action='crtl.database.php'>
-              <input type='hidden' name='user_id' id='userID' value='" . $key['user_id'] . "'>
-              <td>" . $key['user_id'] . "</td>
-              <td><input type='text' class='form-control' name='first_name' id='first_name" . $key['user_id'] . "' value='" . $key['first_name'] . "'></td>
-              <td><input type='text' class='form-control' name='last_name' id='last_name" . $key['user_id'] . "' value='" . $key['last_name'] . "'></td>
-              <td><input type='text' class='form-control' name='user_city' id='user_city" . $key['user_id'] . "' value='" . $key['user_city'] . "'></td>
-              <td><button class='btn btn-secondary' type='button' onclick=updateData(" . $key['user_id'] . ");>Update</button></td>
-              <td><button class='btn btn-secondary' type='button' onclick=deleteData(" . $key['user_id'] . ");>Remove!</button></td>
-            </form>
-            </div>
-          </tr>
-      </form>
-        ";
+      foreach ($header as $rowheader) {
+        echo "<tr>";
+        foreach ($rowheader as $key => $value) {
+          // To display the TH
+          echo "
+            <th>" . $key . "</th>
+          ";
+        }
+        echo "</tr>";
       }
+      foreach ($res as $row) {
+        // To display the content
+        echo "<tr>";
+        foreach ($row as $key => $value) {
+          if (is_numeric($value)) {
+            // If the value is numeric it is a ID
+            // So we only display it
+            echo "<td>" . $value . "</td>";
+          }
+          else {
+            // If the value isn't nummeric
+            echo "
+                <td><input type='text' id='" . $key . $row['user_id'] ."' value='" . $value . "'></td>
+            ";
+          }
+        }
+        echo "
+              <td><button class='btn btn-secondary' type='button' onclick=updateData(" . $row['user_id'] . ");>Update</button></td>
+              <td><button class='btn btn-secondary' type='button' onclick=deleteData(" . $row['user_id'] . ");>Remove!</button></td>";
+        echo "<tr>";
+      }
+
+      $res = $row;
+
       echo "</table>";
     }
   }

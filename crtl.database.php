@@ -19,8 +19,9 @@ if (ISSET($_REQUEST['submit'])) {
       break;
     case 'table':
     $data = $crud->readData("SELECT * FROM users");
+    $header = $crud->readData("SELECT * FROM users LIMIT 0,1");
     $view = new view();
-    $view->createFormTable($data);
+    $view->createFormTable($data, $header);
       break;
   }
 }
