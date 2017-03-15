@@ -11,7 +11,7 @@ function getRequest() {
     }
   };
   xhttp.open("GET", "crtl.database.php?submit=table", true);
-  xhttp.send("");
+  xhttp.send();
 }
 function updateData(id) {
   // Update data
@@ -67,7 +67,7 @@ function deleteData(userID) {
     }
   };
   xhttp.open("GET", "crtl.database.php?submit=remove&user_id=" + userID + "", true);
-  xhttp.send("");
+  xhttp.send();
 }
 function showResult(message) {
   // We use this to display a message
