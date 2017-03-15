@@ -14,22 +14,31 @@
 
   </head>
   <body onload="getRequest();">
+  <div id="inputForm">
+    <form method="post" class='form-group' action="crtl.database.php">
+      <div>First Name</div>
+      <input type="text" id="firstname" class="form-control" name="first_name">
+      <div>Last Name</div>
+      <input type="text" id="lastname" class="form-control" name="last_name">
+      <div>user_city</div>
+      <input type="text" id="usercity" class="form-control" name="user_city">
+      <div></div>
+      <button type="button" class="btn btn-primary" onclick="insertData(firstname.value, lastname.value, usercity.value); showInputForm('inputForm', 'none');">Opslaan</button>
+    </form>
+    <button type="button" onclick="showInputForm('inputForm', 'none');">Verwijderen</button><br />
+  </div>
+  <button type="button" onclick="showInputForm('inputForm', 'show');">Invoeren</button>
   <div id="result"></div>
-  <form method="post" class='form-group' action="crtl.database.php">
-    <div>First Name</div>
-    <input type="text" id="firstname" class="form-control" name="first_name">
-    <div>Last Name</div>
-    <input type="text" id="lastname" class="form-control" name="last_name">
-    <div>user_city</div>
-    <input type="text" id="usercity" class="form-control" name="user_city">
-    <div></div>
-    <button type="button" class="btn btn-primary" onclick="insertData(firstname.value, lastname.value, usercity.value);">Opslaan</button>
-  </form>
   <!-- Content contains the table that is get by AJAX -->
   <div id="content"></div>
 
   <!-- Status contains a loader -->
-  <div id="status">&nbsp;</div>
+
+  <div class="checkmark-circle">
+  <div class="background"></div>
+  <div class="checkmark draw"></div>
+  </div>
+  <div id="loading">&nbsp;</div>
 
 
 </body>

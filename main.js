@@ -88,3 +88,22 @@ function stateShow(status) {
     status = "loading";
   }
 }
+function showInputForm(idForm, method) {
+  // This function displays a form
+  // Witch is be send by a parameter STRING
+  // console.log("RUN");
+  // console.log(idForm);
+  var form = document.getElementById(idForm);
+  if (method == "show") {
+    // We show the form
+    // console.log(form.style = "top: 0");
+    form.style.top = "50%";
+    form.style.opacity = "1";
+  }
+  else if (method == "none") {
+    // form.display = "none";
+    form.style.top = "-80%";
+    form.style.opacity = "0";
+  }
+
+}
