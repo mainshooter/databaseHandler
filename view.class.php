@@ -8,6 +8,7 @@
 //   }
 //   echo "<tr>";
 // }
+// To display dynamicly the results form the database
   class view {
     // We create view in here
     function createFormTable($row, $header) {
@@ -48,9 +49,6 @@
               <td><button class='btn btn-secondary' type='button' onclick=deleteData(" . $row['user_id'] . ");>Remove!</button></td>";
         echo "<tr>";
       }
-
-      $res = $row;
-
       echo "</table>";
     }
   }
