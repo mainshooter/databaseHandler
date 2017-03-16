@@ -102,7 +102,7 @@ function showInputForm(idForm, method) {
   }
   else if (method == "none") {
     // form.display = "none";
-    form.style.top = "-80%";
+    form.style.top = "-800%";
     form.style.opacity = "0";
   }
 
